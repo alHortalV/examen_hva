@@ -18,13 +18,13 @@ class CustomPista extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
         children: [
-          SizedBox(
-            height: 200,
-            width: double.infinity,
-            child: Image.network(
-              imageUrl,
-              fit: BoxFit.cover,
-            ),
+          FadeInImage(
+            image: NetworkImage(imageUrl),
+            placeholder: const AssetImage("assets/jar-loading.gif"),
+            width: double.infinity, //Ocupa todo el ancho posible
+            height: 260,
+            fit: BoxFit.cover, // La relación aspecto sigue igual
+            fadeInDuration: const Duration(milliseconds: 3000),
           ),
           const SizedBox(height: 8),
           Padding(
