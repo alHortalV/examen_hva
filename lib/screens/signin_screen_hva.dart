@@ -8,7 +8,7 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     final Map<String, String> formValues = {};
 
     return Scaffold(
@@ -18,9 +18,9 @@ class SignInScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(25),
           child: Form(
-            key: _formKey,
+            key: formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -30,7 +30,6 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 24),
-                // Campo para usuario
                 CustomTextFormField(
                   labelText: 'Usuario',
                   suffixIcon: Icons.group_outlined,
@@ -63,7 +62,7 @@ class SignInScreen extends StatelessWidget {
                 const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () {
-                    if (_formKey.currentState?.validate() ?? false) {
+                    if (formKey.currentState?.validate() ?? false) {
                       print('Usuario: ${formValues['usuario']}');
                       print('Contraseña: ${formValues['contraseña']}');
                       Navigator.push(

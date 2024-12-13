@@ -7,34 +7,34 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Center(
-            child: Column(
-              children: [
-                const FlutterLogo(
-                  size: 200,
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignInScreen()),
-                    );
-                  },
-                  child: const Text('Sign In'),
-                ),
-                const SizedBox(height: 10),
-                const ElevatedButton(
-                  onPressed: null,
-                  child: Text('Sign Up'),
-                )
-              ],
+      body: Center(
+        // Centra todo el contenido en la pantalla
+        child: Column(
+          mainAxisSize: MainAxisSize
+              .min, // Asegura que el tamaño sea el mínimo necesario para el contenido
+          children: [
+            const FlutterLogo(
+              size: 200,
             ),
-          ),
-        ],
+            const SizedBox(height: 20),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(fixedSize: const Size(150, 40)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignInScreen()),
+                );
+              },
+              child: const Text('Sign In'),
+            ),
+            const SizedBox(height: 15),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(fixedSize: const Size(150, 40)),
+              onPressed: null,
+              child: const Text('Sign Up'),
+            )
+          ],
+        ),
       ),
     );
   }
