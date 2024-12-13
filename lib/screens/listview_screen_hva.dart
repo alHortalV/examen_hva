@@ -1,4 +1,5 @@
 import 'package:fl_examen_moviles_ahv/screens/screens.dart';
+import 'package:fl_examen_moviles_ahv/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ListViewScreen extends StatelessWidget {
@@ -23,28 +24,20 @@ class ListViewScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          ListTile(
-            title: const Text('Pistas'),
-            leading: const Icon(Icons.sports_basketball),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const PistasScreen()),
-              );
-            },
-          ),
-          const Divider(),
-          ListTile(
-            title: const Text('Monitores'),
-            leading: const Icon(Icons.group_sharp),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MonitoresScreen(),
-                ),
-              );
-            },
+          const Column(
+            children: [
+              CustomListView(
+                title: 'Pistas',
+                icon: Icons.sports_basketball,
+                destinationScreen: PistasScreen(),
+              ),
+              Divider(),
+              CustomListView(
+                title: 'Monitores',
+                icon: Icons.group_sharp,
+                destinationScreen: MonitoresScreen(),
+              ),
+            ],
           ),
           const Divider(),
           ListTile(
