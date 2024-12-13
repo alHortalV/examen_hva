@@ -11,8 +11,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextCapitalization capitalization;
   final Map<String, String> formValues;
   final String formProperty;
-  final String? Function(String?)?
-      validator; // Agregamos el parámetro validator
+  final String? Function(String?)? validator;
 
   const CustomTextFormField({
     super.key,
@@ -26,7 +25,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.capitalization,
     required this.formProperty,
     required this.formValues,
-    this.validator, // Lo recibimos en el constructor
+    this.validator,
   });
 
   @override
@@ -37,7 +36,7 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: obscureText,
       onChanged: (value) => formValues[formProperty] = value,
-      validator: validator, // Usamos el parámetro validator aquí
+      validator: validator,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         hintText: hintText,

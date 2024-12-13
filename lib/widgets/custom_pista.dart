@@ -18,7 +18,6 @@ class CustomPista extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
         children: [
-          // Imagen con loading
           SizedBox(
             height: 200,
             width: double.infinity,
@@ -28,7 +27,6 @@ class CustomPista extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 8),
-          // Nombre de la pista
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Align(
@@ -36,40 +34,31 @@ class CustomPista extends StatelessWidget {
               child: Text(
                 nombre,
                 style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green),
               ),
             ),
           ),
           const SizedBox(height: 4),
-          // Descripción Lorem Ipsum por defecto
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis.',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey,
               ),
             ),
           ),
           const SizedBox(height: 8),
-          // Botón Reservar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Align(
               alignment: Alignment.centerRight,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Acción de reserva aquí
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Botón reservar pulsado'),
-                    ),
-                  );
-                },
-                child: const Text('Reservar'),
+              child: TextButton(
+                onPressed: () {},
+                child: const Text('Reservar',
+                    style: TextStyle(decoration: TextDecoration.underline)),
               ),
             ),
           ),
