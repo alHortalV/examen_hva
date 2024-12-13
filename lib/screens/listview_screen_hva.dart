@@ -67,7 +67,7 @@ class ListViewScreen extends StatelessWidget {
                       TextButton(
                         child: const Text('Cancelar'),
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Navigator.pop(context);
                         },
                       ),
                     ],
