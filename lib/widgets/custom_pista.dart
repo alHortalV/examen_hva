@@ -13,10 +13,10 @@ class CustomPista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      clipBehavior: Clip.antiAlias,
       elevation: 4,
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Imagen con loading
           SizedBox(
@@ -31,11 +31,14 @@ class CustomPista extends StatelessWidget {
           // Nombre de la pista
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              nombre,
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                nombre,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
@@ -55,16 +58,19 @@ class CustomPista extends StatelessWidget {
           // Botón Reservar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Acción de reserva aquí
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Botón reservar pulsado'),
-                  ),
-                );
-              },
-              child: const Text('Reservar'),
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Acción de reserva aquí
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Botón reservar pulsado'),
+                    ),
+                  );
+                },
+                child: const Text('Reservar'),
+              ),
             ),
           ),
           const SizedBox(height: 8),
