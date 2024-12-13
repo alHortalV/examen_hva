@@ -46,21 +46,24 @@ class SignInScreen extends StatelessWidget {
                     return null;
                   },
                 ),
-                const SizedBox(height: 16),
-                // Campo para contraseña
+                const SizedBox(height: 24),
                 CustomTextFormField(
                   labelText: 'Contraseña',
                   obscureText: true,
                   capitalization: TextCapitalization.none,
                   formProperty: 'contraseña',
                   formValues: formValues,
+                  validator: (value) {
+                    if (value == null || value.isEmpty || value.length < 6) {
+                      return 'Mínimo 6 caracteres';
+                    }
+                    return null;
+                  },
                 ),
                 const SizedBox(height: 24),
-                // Botón para el inicio de sesión
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState?.validate() ?? false) {
-                      // Valida el formulario antes de hacer el print
                       print('Usuario: ${formValues['usuario']}');
                       print('Contraseña: ${formValues['contraseña']}');
                       Navigator.push(
